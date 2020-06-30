@@ -41,6 +41,9 @@ matrix:
         # EXECUTA SCRIPT PARA BUILD DO APPBUNDLE RELEASE
         - ls
         - flutter create myapp
+        - cd myapp
+        - flutter build appbundle
+        - ls
 install:
   # INSTALA SDK FLUTTER - V2.17
   - git clone -b 'v1.12.13+hotfix.8' --depth 1 https://github.com/flutter/flutter.git
