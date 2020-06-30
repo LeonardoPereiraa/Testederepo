@@ -40,7 +40,7 @@ matrix:
       script:
         # EXECUTA SCRIPT PARA BUILD DO APPBUNDLE RELEASE
         - ls
-        
+        - flutter doctor
 install:
   # INSTALA SDK FLUTTER - V2.17
   - git clone -b 'v1.12.13+hotfix.8' --depth 1 https://github.com/flutter/flutter.git
