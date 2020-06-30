@@ -36,7 +36,7 @@ matrix:
       before_script:
         - yes | sdkmanager --update
         - ls -la
-        - chmod +x #Dê permissão ao diretorio gradlew que apresenta no log do travis ci
+        - chmod +x . #Dê permissão ao diretorio gradlew que apresenta no log do travis ci
       script:
         # EXECUTA SCRIPT PARA BUILD DO APPBUNDLE RELEASE
         - ls
