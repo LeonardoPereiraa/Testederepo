@@ -28,6 +28,7 @@ matrix:
         - fonts-droid
     before_script:
     - ls
+    - cat oi.txt
     - yes | sdkmanager --update
     - ls -la
     - chmod +x .
@@ -44,5 +45,7 @@ cache:
   directories:
   - "$HOME/.pub-cache"
 before_install:
+- openssl aes-256-cbc -K $encrypted_049c52812871_key -iv $encrypted_049c52812871_iv
+  -in nao.txt.enc -out nao.txt -d
 - openssl aes-256-cbc -K $encrypted_ab3d90f89345_key -iv $encrypted_ab3d90f89345_iv
   -in oi.txt.enc -out oi.txt -d
