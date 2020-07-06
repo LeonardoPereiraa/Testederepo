@@ -1,53 +1,48 @@
-#Arquivo de configuração para CI/CD - Travis CI
-#A tag matrix é utilizado para que seja configurado multiplo build/deploy - ANDROID/IOS
-
 matrix:
   include:
-    - os: linux
-      language: android
-      dist: trusty
-      licenses:
-        - 'android-sdk-preview-license-.+'
-        - 'android-sdk-license-.+'
-        - 'google-gdk-license-.+'
-
-      # ANDROID BUILD
-      android:
-        components:
-          - tools
-          - platform-tools
-          - build-tools-28.0.3
-          - android-28
-          - sys-img-armeabi-v7a-google_apis-28
-          - extra-android-m2repository
-          - extra-google-m2repository
-          - extra-google-android-support
-      jdk: oraclejdk8
-      sudo: true
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - libstdc++6
-            - fonts-droid
-
-      # HABILITAR LICENÇA ANDROID GRADLEW
-      before_script:
-        - yes | sdkmanager --update
-        - ls -la
-        - chmod +x . #Dê permissão ao diretorio gradlew que apresenta no log do travis ci
-      script:
-        # EXECUTA SCRIPT PARA BUILD DO APPBUNDLE RELEASE
-        - ls
-        - flutter create myapp
-        - cd myapp
-        - flutter build appbundle
-        - ls
+  - os: linux
+    language: android
+    dist: trusty
+    licenses:
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
+    android:
+      components:
+      - tools
+      - platform-tools
+      - build-tools-28.0.3
+      - android-28
+      - sys-img-armeabi-v7a-google_apis-28
+      - extra-android-m2repository
+      - extra-google-m2repository
+      - extra-google-android-support
+    jdk: oraclejdk8
+    sudo: true
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - libstdc++6
+        - fonts-droid
+    before_script:
+    - ls
+    - yes | sdkmanager --update
+    - ls -la
+    - chmod +x .
+    script:
+    - ls
+    - flutter create myapp
+    - cd myapp
+    - flutter build appbundle
+    - ls
 install:
-  # INSTALA SDK FLUTTER - V2.17
-  - git clone -b 'v1.12.13+hotfix.8' --depth 1 https://github.com/flutter/flutter.git
-  - export PATH="$PATH:`pwd`/flutter/bin"
+- git clone -b 'v1.12.13+hotfix.8' --depth 1 https://github.com/flutter/flutter.git
+- export PATH="$PATH:`pwd`/flutter/bin"
 cache:
   directories:
-    - $HOME/.pub-cache
+  - "$HOME/.pub-cache"
+before_install:
+- openssl aes-256-cbc -K $encrypted_ab3d90f89345_key -iv $encrypted_ab3d90f89345_iv
+  -in oi.txt.enc -out oi.txt -d
