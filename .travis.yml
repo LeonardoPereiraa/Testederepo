@@ -28,16 +28,16 @@ matrix:
         - fonts-droid
     before_script:
     - ls
-    - cd ./teste/android
+    - cd ./ttttestet/android
     - ls
     - cd ..
     - cd ..
-    - yes | sdkmanager --update 
+    - yes | sdkmanager --update
     - ls -la
     - chmod +x .
     script:
     - ls
-    - cd teste
+    - cd ttttestet
     - flutter build appbundle
     - cd android
     - gem install fastlane -NV
@@ -49,14 +49,10 @@ cache:
   directories:
   - "$HOME/.pub-cache"
 before_install:
-- openssl aes-256-cbc -K $encrypted_27d4849cc909_key -iv $encrypted_27d4849cc909_iv
-  -in api-play-store-key.json.enc -out ./teste/android/api-play-store-key.json
+- openssl aes-256-cbc -K $encrypted_b5983a1bacfe_key -iv $encrypted_b5983a1bacfe_iv
+  -in key.properties.enc -out ./ttttestet/android/key.properties -d
+- openssl aes-256-cbc -K $encrypted_968cd382f1e2_key -iv $encrypted_968cd382f1e2_iv
+  -in key.jks.enc -out ./ttttestet/android/key.jks -d
+- openssl aes-256-cbc -K $encrypted_7e7a0bbbd62e_key -iv $encrypted_7e7a0bbbd62e_iv
+  -in api-play-store-key.json.enc -out ./ttttestet/android/api-play-store-key.json
   -d
-- openssl aes-256-cbc -K $encrypted_eeb603d14591_key -iv $encrypted_eeb603d14591_iv
-  -in key.properties.enc -out ./teste/android/key.properties -d
-- openssl aes-256-cbc -K $encrypted_a1878d22f282_key -iv $encrypted_a1878d22f282_iv
-  -in key.jks.enc -out ./teste/android/key.jks -d
-- openssl aes-256-cbc -K $encrypted_049c52812871_key -iv $encrypted_049c52812871_iv
-  -in nao.txt.enc -out nao.txt -d
-- openssl aes-256-cbc -K $encrypted_ab3d90f89345_key -iv $encrypted_ab3d90f89345_iv
-  -in oi.txt.enc -out oi.txt -d
