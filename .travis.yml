@@ -28,7 +28,7 @@ matrix:
         - fonts-droid
     before_script:
     - ls
-    - cd /teste/android
+    - cd ./teste/android
     - ls
     - cd ..
     - cd ..
