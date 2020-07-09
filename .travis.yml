@@ -28,8 +28,11 @@ matrix:
         - fonts-droid
     before_script:
     - ls
-    - cat oi.txt
-    - yes | sdkmanager --update
+    - cd /teste/android
+    - ls
+    - cd ..
+    - cd ..
+    - yes | sdkmanager --update 
     - ls -la
     - chmod +x .
     script:
