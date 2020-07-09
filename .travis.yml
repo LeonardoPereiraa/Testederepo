@@ -50,7 +50,7 @@ cache:
   - "$HOME/.pub-cache"
 before_install:
 - openssl aes-256-cbc -K $encrypted_27d4849cc909_key -iv $encrypted_27d4849cc909_iv
-  -in api-play-store-key.json.enc -out ./teste/android/fastlane/api-play-store-key.json
+  -in api-play-store-key.json.enc -out ./teste/android/api-play-store-key.json
   -d
 - openssl aes-256-cbc -K $encrypted_eeb603d14591_key -iv $encrypted_eeb603d14591_iv
   -in key.properties.enc -out ./teste/android/key.properties -d
