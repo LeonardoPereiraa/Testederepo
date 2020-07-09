@@ -41,7 +41,7 @@ matrix:
     - flutter build appbundle
     - cd android
     - gem install fastlane -NV
-    - fastlane exec supply --apk ./../build/app/outputs/bundle/release/app-release.aab
+    - fastlane supply --aab ./../build/app/outputs/bundle/release/app-release.aab
 install:
 - git clone -b 'v1.12.13+hotfix.8' --depth 1 https://github.com/flutter/flutter.git
 - export PATH="$PATH:`pwd`/flutter/bin"
